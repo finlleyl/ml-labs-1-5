@@ -44,7 +44,7 @@ def load_classification() -> DatasetSplit:
     return DatasetSplit(
         task="classification",
         name="Ionosphere (UCI)",
-        practical_task="По сигналам фазированной антенной решётки отличать радиосигналы со структурой в ионосфере от проходящих сигналов.",
+        practical_task="По сигналам фазированной антенной решетки отличать радиосигналы со структурой в ионосфере от проходящих сигналов.",
         X_train=X_train,
         X_test=X_test,
         y_train=y_train,

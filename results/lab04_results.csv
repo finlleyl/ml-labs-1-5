@@ -1,9 +1,9 @@
 lab,algorithm,task,implementation,stage,accuracy,f1,roc_auc,rmse,mae,r2,fit_seconds,params
-4,Случайный лес,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9947826086956523,,,,0.059476374997757375,{}
-4,Случайный лес,classification,sklearn,improved,0.9436619718309859,0.9166666666666666,0.9965217391304347,,,,1.9202283339982387,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,classification,from_scratch,baseline,0.971830985915493,0.96,0.9982608695652174,,,,0.0498618750134483,{}
-4,Случайный лес,classification,from_scratch,improved,0.9436619718309859,0.9166666666666666,0.9956521739130434,,,,0.09036654100054875,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,regression,sklearn,baseline,,,,4.57820606243074,3.2030075838524303,0.9298136774255669,0.04766725000808947,{}
-4,Случайный лес,regression,sklearn,improved,,,,4.514650889238661,3.1581652164437606,0.9317488205052626,0.626672917016549,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,regression,from_scratch,baseline,,,,4.778617220131616,3.2916358037989424,0.9235343643048922,1.5652727079868782,{}
-4,Случайный лес,regression,from_scratch,improved,,,,4.556250910469227,3.206058851177249,0.9304852315143176,2.0302269579842687,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9947826086956523,,,,0.05327387500437908,{}
+4,Случайный лес,classification,sklearn,improved,0.9436619718309859,0.9166666666666666,0.9965217391304347,,,,1.816391916014254,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,classification,from_scratch,baseline,0.971830985915493,0.96,0.9982608695652174,,,,0.051042708015302196,{}
+4,Случайный лес,classification,from_scratch,improved,0.9436619718309859,0.9166666666666666,0.9956521739130434,,,,0.09031595900887623,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,regression,sklearn,baseline,,,,4.5782060624307395,3.2030075838524303,0.9298136774255669,0.04841212500468828,{}
+4,Случайный лес,regression,sklearn,improved,,,,4.514650889238662,3.158165216443761,0.9317488205052626,0.6108218339795712,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,regression,from_scratch,baseline,,,,4.778617220131616,3.2916358037989424,0.9235343643048922,1.5877313750097528,{}
+4,Случайный лес,regression,from_scratch,improved,,,,4.556250910469227,3.206058851177249,0.9304852315143176,2.0346196250175126,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"

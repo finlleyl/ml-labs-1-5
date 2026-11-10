@@ -1,41 +1,41 @@
 lab,algorithm,task,implementation,stage,accuracy,f1,roc_auc,rmse,mae,r2,fit_seconds,params
-1,KNN,classification,sklearn,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,0.002192250016378239,{}
-1,KNN,classification,sklearn,improved,0.8591549295774648,0.75,0.9360869565217391,,,,1.5549925410014112,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
-1,KNN,classification,from_scratch,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,4.51250234618783e-05,{}
-1,KNN,classification,from_scratch,improved,0.8591549295774648,0.75,0.9360869565217391,,,,3.2499985536560416e-05,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
-1,KNN,regression,sklearn,baseline,,,,8.806859748453668,7.005260721666808,0.7402808480563183,0.0016188749868888408,{}
-1,KNN,regression,sklearn,improved,,,,7.787411543830077,5.728984200848484,0.7969289244530053,0.05718450000858866,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
-1,KNN,regression,from_scratch,baseline,,,,8.80685974845367,7.005260721666808,0.7402808480563183,1.270900247618556e-05,{}
-1,KNN,regression,from_scratch,improved,,,,7.787411543830039,5.728984200848351,0.7969289244530073,9.499985026195645e-06,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
-2,Логистическая / линейная регрессия,classification,sklearn,baseline,0.7746478873239436,0.5294117647058824,0.8313043478260869,,,,0.0036814170016441494,{}
-2,Логистическая / линейная регрессия,classification,sklearn,improved,0.8028169014084507,0.631578947368421,0.8695652173913043,,,,1.3052459160098806,"{""model__C"": 0.2, ""model__class_weight"": ""balanced""}"
-2,Логистическая / линейная регрессия,classification,from_scratch,baseline,0.7605633802816901,0.48484848484848486,0.6730434782608695,,,,0.06393149998621084,{}
-2,Логистическая / линейная регрессия,classification,from_scratch,improved,0.8028169014084507,0.631578947368421,0.8704347826086957,,,,0.030214666010579094,"{""custom__l2"": 0.017857142857142856, ""model__C"": 0.2, ""model__class_weight"": ""balanced""}"
-2,Логистическая / линейная регрессия,regression,sklearn,baseline,,,,10.162504379938442,8.196824471044717,0.6541694882131697,0.0014147080073598772,{}
-2,Логистическая / линейная регрессия,regression,sklearn,improved,,,,7.530999545120757,5.816853845263214,0.8100815931254912,0.03054875001544133,"{""poly__degree"": 2}"
-2,Логистическая / линейная регрессия,regression,from_scratch,baseline,,,,10.162504379938452,8.196824471044739,0.654169488213169,0.00013262499123811722,{}
-2,Логистическая / линейная регрессия,regression,from_scratch,improved,,,,7.530999545120737,5.816853845263252,0.8100815931254922,0.0019971250148955733,"{""poly__degree"": 2}"
-3,Решающее дерево,classification,sklearn,baseline,0.9014084507042254,0.8571428571428571,0.8873913043478261,,,,0.003355666995048523,{}
-3,Решающее дерево,classification,sklearn,improved,0.8732394366197183,0.8235294117647058,0.9334782608695652,,,,1.3034294999961276,"{""model__max_depth"": 5, ""model__min_samples_leaf"": 7}"
-3,Решающее дерево,classification,from_scratch,baseline,0.8873239436619719,0.84,0.8765217391304347,,,,0.009721584006911144,{}
-3,Решающее дерево,classification,from_scratch,improved,0.8591549295774648,0.7916666666666666,0.9269565217391305,,,,0.004670374997658655,"{""model__max_depth"": 5, ""model__min_samples_leaf"": 7}"
-3,Решающее дерево,regression,sklearn,baseline,,,,5.74525603875087,3.8034537123351337,0.889469892703608,0.0028560830105561763,{}
-3,Решающее дерево,regression,sklearn,improved,,,,5.74525603875087,3.8034537123351337,0.889469892703608,0.0447497499990277,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
-3,Решающее дерево,regression,from_scratch,baseline,,,,5.439494148822118,3.5648486369246295,0.9009216321555511,0.07346954100648873,{}
-3,Решающее дерево,regression,from_scratch,improved,,,,5.439494148822118,3.5648486369246295,0.9009216321555511,0.07265212497441098,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
-4,Случайный лес,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9947826086956523,,,,0.059476374997757375,{}
-4,Случайный лес,classification,sklearn,improved,0.9436619718309859,0.9166666666666666,0.9965217391304347,,,,1.9202283339982387,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,classification,from_scratch,baseline,0.971830985915493,0.96,0.9982608695652174,,,,0.0498618750134483,{}
-4,Случайный лес,classification,from_scratch,improved,0.9436619718309859,0.9166666666666666,0.9956521739130434,,,,0.09036654100054875,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,regression,sklearn,baseline,,,,4.57820606243074,3.2030075838524303,0.9298136774255669,0.04766725000808947,{}
-4,Случайный лес,regression,sklearn,improved,,,,4.514650889238661,3.1581652164437606,0.9317488205052626,0.626672917016549,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-4,Случайный лес,regression,from_scratch,baseline,,,,4.778617220131616,3.2916358037989424,0.9235343643048922,1.5652727079868782,{}
-4,Случайный лес,regression,from_scratch,improved,,,,4.556250910469227,3.206058851177249,0.9304852315143176,2.0302269579842687,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
-5,Градиентный бустинг,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9956521739130435,,,,0.08802370802732185,{}
-5,Градиентный бустинг,classification,sklearn,improved,0.9436619718309859,0.9130434782608695,0.9973913043478261,,,,1.9504158750060014,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,classification,from_scratch,baseline,0.9295774647887324,0.8936170212765957,0.9904347826086957,,,,0.343725209007971,{}
-5,Градиентный бустинг,classification,from_scratch,improved,0.971830985915493,0.9583333333333334,0.9952173913043478,,,,0.35499045799952,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,regression,sklearn,baseline,,,,5.29161580502185,3.9903222987260145,0.906235503538752,0.05617125000571832,{}
-5,Градиентный бустинг,regression,sklearn,improved,,,,4.6678531041053555,3.4299388414518783,0.9270380929701242,0.4637220840086229,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,regression,from_scratch,baseline,,,,5.313564782220141,3.9919762522395597,0.9054560429318103,0.15003716701176018,{}
-5,Градиентный бустинг,regression,from_scratch,improved,,,,4.61950657095911,3.3796476429056375,0.9285416483112523,0.2934792500163894,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
+1,KNN,classification,sklearn,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,0.0021899170242249966,{}
+1,KNN,classification,sklearn,improved,0.8591549295774648,0.75,0.9360869565217391,,,,1.4343740839976817,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
+1,KNN,classification,from_scratch,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,4.112499300390482e-05,{}
+1,KNN,classification,from_scratch,improved,0.8591549295774648,0.75,0.9360869565217391,,,,3.270799061283469e-05,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
+1,KNN,regression,sklearn,baseline,,,,8.806859748453668,7.005260721666808,0.7402808480563183,0.0022682080161757767,{}
+1,KNN,regression,sklearn,improved,,,,7.787411543830077,5.728984200848484,0.7969289244530053,0.06465670801117085,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
+1,KNN,regression,from_scratch,baseline,,,,8.80685974845367,7.005260721666808,0.7402808480563183,1.1249998351559043e-05,{}
+1,KNN,regression,from_scratch,improved,,,,7.787411543830039,5.728984200848351,0.7969289244530073,1.0415998985990882e-05,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
+2,Логистическая / линейная регрессия,classification,sklearn,baseline,0.7746478873239436,0.5294117647058824,0.8313043478260869,,,,0.005214915989199653,{}
+2,Логистическая / линейная регрессия,classification,sklearn,improved,0.8028169014084507,0.631578947368421,0.8695652173913043,,,,1.834145874978276,"{""model__C"": 0.2, ""model__class_weight"": ""balanced""}"
+2,Логистическая / линейная регрессия,classification,from_scratch,baseline,0.7605633802816901,0.48484848484848486,0.6730434782608695,,,,0.06631566601572558,{}
+2,Логистическая / линейная регрессия,classification,from_scratch,improved,0.8028169014084507,0.631578947368421,0.8704347826086957,,,,0.030603291001170874,"{""custom__l2"": 0.017857142857142856, ""model__C"": 0.2, ""model__class_weight"": ""balanced""}"
+2,Логистическая / линейная регрессия,regression,sklearn,baseline,,,,10.162504379938442,8.196824471044717,0.6541694882131697,0.0019352090021129698,{}
+2,Логистическая / линейная регрессия,regression,sklearn,improved,,,,7.530999545120757,5.816853845263214,0.8100815931254912,0.0295723749732133,"{""poly__degree"": 2}"
+2,Логистическая / линейная регрессия,regression,from_scratch,baseline,,,,10.162504379938452,8.196824471044739,0.654169488213169,0.00015029197675175965,{}
+2,Логистическая / линейная регрессия,regression,from_scratch,improved,,,,7.530999545120737,5.816853845263252,0.8100815931254922,0.0004496660258155316,"{""poly__degree"": 2}"
+3,Решающее дерево,classification,sklearn,baseline,0.9014084507042254,0.8571428571428571,0.8873913043478261,,,,0.00558849997469224,{}
+3,Решающее дерево,classification,sklearn,improved,0.8732394366197183,0.8235294117647058,0.9334782608695652,,,,1.367542958992999,"{""model__max_depth"": 5, ""model__min_samples_leaf"": 7}"
+3,Решающее дерево,classification,from_scratch,baseline,0.8873239436619719,0.84,0.8765217391304347,,,,0.009801374981179833,{}
+3,Решающее дерево,classification,from_scratch,improved,0.8591549295774648,0.7916666666666666,0.9269565217391305,,,,0.005066042009275407,"{""model__max_depth"": 5, ""model__min_samples_leaf"": 7}"
+3,Решающее дерево,regression,sklearn,baseline,,,,5.74525603875087,3.8034537123351337,0.889469892703608,0.0032447090197820216,{}
+3,Решающее дерево,regression,sklearn,improved,,,,5.74525603875087,3.8034537123351337,0.889469892703608,0.045670291990973055,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
+3,Решающее дерево,regression,from_scratch,baseline,,,,5.439494148822118,3.5648486369246295,0.9009216321555511,0.07534100001794286,{}
+3,Решающее дерево,regression,from_scratch,improved,,,,5.439494148822118,3.5648486369246295,0.9009216321555511,0.07522829101071693,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
+4,Случайный лес,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9947826086956523,,,,0.05327387500437908,{}
+4,Случайный лес,classification,sklearn,improved,0.9436619718309859,0.9166666666666666,0.9965217391304347,,,,1.816391916014254,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,classification,from_scratch,baseline,0.971830985915493,0.96,0.9982608695652174,,,,0.051042708015302196,{}
+4,Случайный лес,classification,from_scratch,improved,0.9436619718309859,0.9166666666666666,0.9956521739130434,,,,0.09031595900887623,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,regression,sklearn,baseline,,,,4.5782060624307395,3.2030075838524303,0.9298136774255669,0.04841212500468828,{}
+4,Случайный лес,regression,sklearn,improved,,,,4.514650889238662,3.158165216443761,0.9317488205052626,0.6108218339795712,"{""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+4,Случайный лес,regression,from_scratch,baseline,,,,4.778617220131616,3.2916358037989424,0.9235343643048922,1.5877313750097528,{}
+4,Случайный лес,regression,from_scratch,improved,,,,4.556250910469227,3.206058851177249,0.9304852315143176,2.0346196250175126,"{""custom__n_estimators"": 50, ""model__max_depth"": null, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 150}"
+5,Градиентный бустинг,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9956521739130435,,,,0.08875166700454429,{}
+5,Градиентный бустинг,classification,sklearn,improved,0.9436619718309859,0.9130434782608695,0.9973913043478261,,,,1.8313583330018446,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,classification,from_scratch,baseline,0.9295774647887324,0.8936170212765957,0.9904347826086957,,,,0.35583374998532236,{}
+5,Градиентный бустинг,classification,from_scratch,improved,0.971830985915493,0.9583333333333334,0.9952173913043478,,,,0.3581696660257876,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,regression,sklearn,baseline,,,,5.29161580502185,3.9903222987260145,0.906235503538752,0.05631704200641252,{}
+5,Градиентный бустинг,regression,sklearn,improved,,,,4.6678531041053555,3.4299388414518783,0.9270380929701242,0.4720907500013709,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,regression,from_scratch,baseline,,,,5.313564782220141,3.9919762522395597,0.9054560429318103,0.1536598340026103,{}
+5,Градиентный бустинг,regression,from_scratch,improved,,,,4.61950657095911,3.3796476429056375,0.9285416483112523,0.3099900830129627,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"

@@ -1,4 +1,4 @@
-"""Проверка структуры notebook-файлов и полноты сохранённых результатов."""
+"""Проверяет ноутбуки, результаты и замену символов в текстах."""
 from pathlib import Path
 import ast
 import re
@@ -19,10 +19,10 @@ for path in sorted((ROOT / "notebooks").glob("*.ipynb")):
         except SyntaxError as error:
             errors.append(f"{path.name}, ячейка {number}: {error}")
         first_line = next((line.strip() for line in cell.source.splitlines() if line.strip()), "")
-        if not first_line.startswith("#") or not re.search(r"[А-Яа-яЁё]", first_line):
+        if not first_line.startswith("#") or not re.search(r"[А-Яа-я]", first_line):
             errors.append(f"{path.name}, ячейка {number}: нет русского пояснения в начале")
         for line in cell.source.splitlines():
-            if line.lstrip().startswith("#") and not re.search(r"[А-Яа-яЁё]", line):
+            if line.lstrip().startswith("#") and not re.search(r"[А-Яа-я]", line):
                 errors.append(f"{path.name}, ячейка {number}: комментарий не на русском: {line.strip()}")
         if cell.execution_count is None:
             errors.append(f"{path.name}, ячейка {number}: не выполнена")
@@ -31,7 +31,7 @@ for path in sorted((ROOT / "notebooks").glob("*.ipynb")):
                 errors.append(f"{path.name}, ячейка {number}: ошибка {output.ename}")
         if re.search(r"\b(TODO|FIXME|PLACEHOLDER)\b", cell.source, re.IGNORECASE):
             errors.append(f"{path.name}, ячейка {number}: найден незаполненный маркер")
-    print(f"{path.name}: {len(notebook.cells)} ячеек всего, {len(code_cells)} с кодом")
+    print(f"{path.name}: {len(notebook.cells)} ячеек, {len(code_cells)} с кодом")
 
 results = pd.read_csv(ROOT / "results" / "all_results.csv")
 if len(results) != 40:
@@ -43,6 +43,15 @@ for task, metric in (("classification", "roc_auc"), ("regression", "rmse")):
     if len(subset) != 20 or subset[metric].isna().any():
         errors.append(f"Неполные результаты {task}/{metric}")
 
+text_suffixes = {".py", ".md", ".ipynb", ".csv", ".txt", ".data", ".names"}
+for path in ROOT.rglob("*"):
+    if not path.is_file() or path.suffix not in text_suffixes:
+        continue
+    if any(part in {".git", ".venv", "__pycache__"} for part in path.parts):
+        continue
+    if re.search("[\u0401\u0451]", path.read_text(encoding="utf-8")):
+        errors.append(f"{path.relative_to(ROOT)}: найден символ, который нужно заменить")
+
 if errors:
     raise SystemExit("\n".join(errors))
-print("Проверка пройдена: 6 выполненных notebook-файлов, русские комментарии, 40 результатов.")
+print("Проверка пройдена: 6 ноутбуков, 40 результатов, тексты соответствуют требованиям.")

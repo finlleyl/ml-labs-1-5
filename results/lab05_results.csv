@@ -1,9 +1,9 @@
 lab,algorithm,task,implementation,stage,accuracy,f1,roc_auc,rmse,mae,r2,fit_seconds,params
-5,Градиентный бустинг,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9956521739130435,,,,0.08802370802732185,{}
-5,Градиентный бустинг,classification,sklearn,improved,0.9436619718309859,0.9130434782608695,0.9973913043478261,,,,1.9504158750060014,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,classification,from_scratch,baseline,0.9295774647887324,0.8936170212765957,0.9904347826086957,,,,0.343725209007971,{}
-5,Градиентный бустинг,classification,from_scratch,improved,0.971830985915493,0.9583333333333334,0.9952173913043478,,,,0.35499045799952,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,regression,sklearn,baseline,,,,5.29161580502185,3.9903222987260145,0.906235503538752,0.05617125000571832,{}
-5,Градиентный бустинг,regression,sklearn,improved,,,,4.6678531041053555,3.4299388414518783,0.9270380929701242,0.4637220840086229,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
-5,Градиентный бустинг,regression,from_scratch,baseline,,,,5.313564782220141,3.9919762522395597,0.9054560429318103,0.15003716701176018,{}
-5,Градиентный бустинг,regression,from_scratch,improved,,,,4.61950657095911,3.3796476429056375,0.9285416483112523,0.2934792500163894,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,classification,sklearn,baseline,0.9436619718309859,0.9166666666666666,0.9956521739130435,,,,0.08875166700454429,{}
+5,Градиентный бустинг,classification,sklearn,improved,0.9436619718309859,0.9130434782608695,0.9973913043478261,,,,1.8313583330018446,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,classification,from_scratch,baseline,0.9295774647887324,0.8936170212765957,0.9904347826086957,,,,0.35583374998532236,{}
+5,Градиентный бустинг,classification,from_scratch,improved,0.971830985915493,0.9583333333333334,0.9952173913043478,,,,0.3581696660257876,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,regression,sklearn,baseline,,,,5.29161580502185,3.9903222987260145,0.906235503538752,0.05631704200641252,{}
+5,Градиентный бустинг,regression,sklearn,improved,,,,4.6678531041053555,3.4299388414518783,0.9270380929701242,0.4720907500013709,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
+5,Градиентный бустинг,regression,from_scratch,baseline,,,,5.313564782220141,3.9919762522395597,0.9054560429318103,0.1536598340026103,{}
+5,Градиентный бустинг,regression,from_scratch,improved,,,,4.61950657095911,3.3796476429056375,0.9285416483112523,0.3099900830129627,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}"
