@@ -1,0 +1,9 @@
+lab,algorithm,task,implementation,stage,accuracy,f1,roc_auc,rmse,mae,r2,fit_seconds,params
+1,KNN,classification,sklearn,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,0.002192250016378239,{}
+1,KNN,classification,sklearn,improved,0.8591549295774648,0.75,0.9360869565217391,,,,1.5549925410014112,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
+1,KNN,classification,from_scratch,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,4.51250234618783e-05,{}
+1,KNN,classification,from_scratch,improved,0.8591549295774648,0.75,0.9360869565217391,,,,3.2499985536560416e-05,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
+1,KNN,regression,sklearn,baseline,,,,8.806859748453668,7.005260721666808,0.7402808480563183,0.0016188749868888408,{}
+1,KNN,regression,sklearn,improved,,,,7.787411543830077,5.728984200848484,0.7969289244530053,0.05718450000858866,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
+1,KNN,regression,from_scratch,baseline,,,,8.80685974845367,7.005260721666808,0.7402808480563183,1.270900247618556e-05,{}
+1,KNN,regression,from_scratch,improved,,,,7.787411543830039,5.728984200848351,0.7969289244530073,9.499985026195645e-06,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"

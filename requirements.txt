@@ -1,0 +1,9 @@
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.8
+openpyxl>=3.1
+xlrd>=2.0
+nbformat>=5.10
+nbconvert>=7.16
+ipykernel>=6.29
