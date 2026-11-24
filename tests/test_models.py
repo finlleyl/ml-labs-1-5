@@ -17,8 +17,10 @@ class DataTests(unittest.TestCase):
     def test_real_datasets_and_fixed_splits(self):
         classification = load_classification()
         regression = load_regression()
-        self.assertEqual((len(classification.X), len(classification.X_test)), (351, 71))
-        self.assertEqual((len(regression.X), len(regression.X_test)), (1030, 206))
+        self.assertEqual((len(classification.X), len(classification.X_test)), (306, 62))
+        self.assertEqual((len(regression.X), len(regression.X_test)), (546, 110))
+        self.assertEqual(classification.X.shape[1], 3)
+        self.assertEqual(regression.X.shape[1], 8)
         self.assertEqual(set(classification.y.unique()), {0, 1})
         self.assertFalse(classification.X.isna().any().any())
         self.assertFalse(regression.X.isna().any().any())

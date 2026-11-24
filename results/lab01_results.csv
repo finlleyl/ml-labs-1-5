@@ -1,9 +1,9 @@
 lab,algorithm,task,implementation,stage,accuracy,f1,roc_auc,rmse,mae,r2,fit_seconds,params
-1,KNN,classification,sklearn,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,0.0021899170242249966,{}
-1,KNN,classification,sklearn,improved,0.8591549295774648,0.75,0.9360869565217391,,,,1.4343740839976817,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
-1,KNN,classification,from_scratch,baseline,0.8169014084507042,0.6486486486486487,0.8682608695652174,,,,4.112499300390482e-05,{}
-1,KNN,classification,from_scratch,improved,0.8591549295774648,0.75,0.9360869565217391,,,,3.270799061283469e-05,"{""model__n_neighbors"": 7, ""model__p"": 1, ""model__weights"": ""distance""}"
-1,KNN,regression,sklearn,baseline,,,,8.806859748453668,7.005260721666808,0.7402808480563183,0.0022682080161757767,{}
-1,KNN,regression,sklearn,improved,,,,7.787411543830077,5.728984200848484,0.7969289244530053,0.06465670801117085,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
-1,KNN,regression,from_scratch,baseline,,,,8.80685974845367,7.005260721666808,0.7402808480563183,1.1249998351559043e-05,{}
-1,KNN,regression,from_scratch,improved,,,,7.787411543830039,5.728984200848351,0.7969289244530073,1.0415998985990882e-05,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
+1,KNN,classification,sklearn,baseline,0.6935483870967742,0.2962962962962963,0.6039402173913044,,,,0.002100332989357412,{}
+1,KNN,classification,sklearn,improved,0.7419354838709677,0.38461538461538464,0.6453804347826086,,,,1.4908952910045628,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""uniform""}"
+1,KNN,classification,from_scratch,baseline,0.7096774193548387,0.3076923076923077,0.610733695652174,,,,5.741702625527978e-05,{}
+1,KNN,classification,from_scratch,improved,0.7419354838709677,0.38461538461538464,0.6453804347826086,,,,0.00010154201299883425,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""uniform""}"
+1,KNN,regression,sklearn,baseline,,,,1.3749103899395174,1.0749454545454546,0.3338826466740915,0.0014522919955197722,{}
+1,KNN,regression,sklearn,improved,,,,1.280825981867499,0.877673744581037,0.4219276224951177,0.06643237502430566,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"
+1,KNN,regression,from_scratch,baseline,,,,1.3747016633701754,1.0736945454545455,0.3340848792520501,1.2125005014240742e-05,{}
+1,KNN,regression,from_scratch,improved,,,,1.2809606362863515,0.8779501063551467,0.4218060695396887,1.0583986295387149e-05,"{""model__n_neighbors"": 7, ""model__p"": 2, ""model__weights"": ""distance""}"

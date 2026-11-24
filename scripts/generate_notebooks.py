@@ -17,8 +17,8 @@ LABS = {
     2: {
         "slug": "regression",
         "title": "Логистическая и линейная регрессия",
-        "principle": "Логистическая регрессия возвращает вероятность класса через сигмоиду. Линейная регрессия минимизирует квадраты ошибок, а полиномиальные признаки позволяют учесть нелинейную связь состава бетона и прочности.",
-        "hypotheses": "Для классификации проверяю масштабирование, L2-регуляризацию и балансировку классов. Для бетона сравниваю исходные признаки с полиномом второй степени.",
+        "principle": "Логистическая регрессия возвращает вероятность класса через сигмоиду. Линейная регрессия минимизирует квадраты ошибок, а полиномиальные признаки позволяют учесть нелинейную связь дескрипторов и токсичности.",
+        "hypotheses": "Для классификации проверяю масштабирование, L2-регуляризацию и балансировку классов. Для QSAR сравниваю исходные признаки с полиномом второй степени.",
         "custom": "Логистическая регрессия обучается градиентным спуском. Для линейной используется `np.linalg.lstsq`: так устойчивее, чем явное обращение матрицы.",
     },
     3: {
@@ -80,15 +80,15 @@ def build_lab(number, spec):
 
 ## Данные и метрики
 
-Для классификации взят [Ionosphere](https://archive.ics.uci.edu/dataset/52/ionosphere): 351 радиосигнал и 34 признака. Класс `bad=1` означает сигнал без структуры в ионосфере. Это задача автоматической проверки радиосигналов.
+Для классификации взят [Haberman's Survival](https://archive.ics.uci.edu/dataset/43/haberman+s+survival): 306 пациентов и 3 признака. Целевой класс `1` означает смерть в течение пяти лет после операции. По возрасту, году операции и числу пораженных лимфоузлов нужно оценить этот риск.
 
-Для регрессии взят [Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength): 1030 составов бетона и 8 признаков. По составу и возрасту нужно оценить прочность в МПа. Такой прогноз полезен перед лабораторными испытаниями смеси.
+Для регрессии взят [QSAR aquatic toxicity](https://archive.ics.uci.edu/dataset/505/qsar+aquatic+toxicity): 546 химических соединений и 8 молекулярных дескрипторов. Целевая переменная: токсичность LC50 для Daphnia magna. Такой прогноз помогает отсеивать опасные вещества до экспериментов.
 
 {spec['principle']}
 
 Train и test соотносятся как 80/20, `random_state=22`. Классы при разбиении сохраняются в одинаковой пропорции. Подбор параметров идет только на train.
 
-В классификации основной показатель: ROC-AUC. Он не зависит от выбранного порога. F1 показывает качество для `bad`, accuracy дает общую долю верных ответов. В регрессии основной показатель: RMSE в МПа. MAE проще интерпретировать как типичную ошибку, а R² показывает долю объясненной дисперсии.
+В классификации основной показатель: ROC-AUC. Он не зависит от выбранного порога. F1 считается для класса `1`, accuracy показывает общую долю верных ответов. В регрессии основной показатель: RMSE в единицах LC50. MAE показывает типичную абсолютную ошибку, R² показывает долю объясненной дисперсии.
 """))
     add_pair(nb, "## Подготовка\n\nОбщий код вынесен в `src`, чтобы не повторять его в каждой работе.", IMPORTS)
     add_pair(nb, "## Проверка данных\n\nСмотрю размеры выборок, пропуски и целевые переменные. Эти разбиения используются во всех работах.", f'''# Загружаю данные и проверяю размеры выборок.
@@ -99,30 +99,30 @@ for task, experiment in experiments.items():
     print(data.practical_task)
     print(f"train={{data.X_train.shape}}, test={{data.X_test.shape}}, пропуски={{int(data.X.isna().sum().sum())}}")
     if task == "classification":
-        print(f"Доля bad: train={{data.y_train.mean():.3f}}, test={{data.y_test.mean():.3f}}")
+        print(f"Доля класса 1: train={{data.y_train.mean():.3f}}, test={{data.y_test.mean():.3f}}")
     else:
         print(data.y.describe().to_string())
     print()''')
     if number == 1:
-        add_pair(nb, "## Взгляд на данные\n\nПроверяю баланс классов и константные сигналы. Для бетона смотрю распределение прочности и простые корреляции с признаками.", '''# Строю распределения и считаю корреляции для бетона.
+        add_pair(nb, "## Взгляд на данные\n\nПроверяю баланс классов и константные признаки. Для QSAR смотрю распределение LC50 и корреляции с дескрипторами.", '''# Строю распределения и считаю корреляции для QSAR.
 classification = experiments["classification"].data
 regression = experiments["regression"].data
 constant_features = classification.X_train.columns[classification.X_train.nunique() <= 1].tolist()
-print("Константные признаки Ionosphere:", constant_features)
+print("Константные признаки Haberman:", constant_features)
 
 fig, axes = plt.subplots(1, 2, figsize=(13, 4))
-classification.y_train.map({0: "good", 1: "bad"}).value_counts().plot(kind="bar", ax=axes[0], color=["#3178c6", "#d1495b"])
-axes[0].set_title("Ionosphere: классы в train")
-axes[0].set_ylabel("Число объектов")
+classification.y_train.map({0: "5 лет и более", 1: "до 5 лет"}).value_counts().plot(kind="bar", ax=axes[0], color=["#3178c6", "#d1495b"])
+axes[0].set_title("Haberman: классы в train")
+axes[0].set_ylabel("Число пациентов")
 axes[0].tick_params(axis="x", rotation=0)
 regression.y_train.hist(bins=25, ax=axes[1], color="#2a9d8f")
-axes[1].set_title("Concrete: прочность в train")
-axes[1].set_xlabel("МПа")
+axes[1].set_title("QSAR: LC50 в train")
+axes[1].set_xlabel("LC50 [-log(mol/L)]")
 plt.tight_layout()
 plt.show()
 
-corr = regression.X_train.assign(strength_mpa=regression.y_train).corr()["strength_mpa"].drop("strength_mpa").sort_values()
-display(corr.to_frame("Корреляция с прочностью"))''')
+corr = regression.X_train.assign(lc50=regression.y_train).corr()["lc50"].drop("lc50").sort_values()
+display(corr.to_frame("Корреляция с LC50"))''')
     add_pair(nb, f"## {'Бейзлайн' if number != 1 else 'Базовый бейзлайн'} sklearn\n\nБеру модель с параметрами по умолчанию. Медианный imputer оставлен как страховка, хотя пропусков в данных нет.", '''# Обучаю базовые модели sklearn.
 for experiment in experiments.values():
     experiment.fit_sklearn_baseline()

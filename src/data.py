@@ -1,4 +1,4 @@
-"""Reproducible loading and fixed train/test splits for both UCI datasets."""
+"""Загрузка наборов UCI и одинаковые разбиения для всех работ."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -31,20 +31,20 @@ class DatasetSplit:
 
 
 def load_classification() -> DatasetSplit:
-    path = ROOT / "data" / "ionosphere.data"
-    columns = [f"signal_{i:02d}" for i in range(1, 35)] + ["target"]
+    path = ROOT / "data" / "haberman.data"
+    columns = ["age", "operation_year", "positive_axillary_nodes", "survival_status"]
     frame = pd.read_csv(path, header=None, names=columns)
-    # bad=1 is the anomaly/negative-structure class used as the positive class in F1.
-    frame["target"] = frame["target"].map({"g": 0, "b": 1}).astype(int)
-    X = frame.drop(columns="target")
-    y = frame["target"]
+    # Класс 1 означает смерть в течение пяти лет после операции.
+    frame["survival_status"] = frame["survival_status"].map({1: 0, 2: 1}).astype(int)
+    X = frame.drop(columns="survival_status")
+    y = frame["survival_status"]
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
     )
     return DatasetSplit(
         task="classification",
-        name="Ionosphere (UCI)",
-        practical_task="По сигналам фазированной антенной решетки отличать радиосигналы со структурой в ионосфере от проходящих сигналов.",
+        name="Haberman's Survival (UCI)",
+        practical_task="По возрасту пациента, году операции и числу пораженных лимфоузлов оценить риск смерти в течение пяти лет после операции.",
         X_train=X_train,
         X_test=X_test,
         y_train=y_train,
@@ -54,21 +54,18 @@ def load_classification() -> DatasetSplit:
 
 
 def load_regression() -> DatasetSplit:
-    path = ROOT / "data" / "Concrete_Data.xls"
-    frame = pd.read_excel(path)
-    frame.columns = [
-        "cement", "blast_furnace_slag", "fly_ash", "water", "superplasticizer",
-        "coarse_aggregate", "fine_aggregate", "age_days", "strength_mpa",
-    ]
-    X = frame.drop(columns="strength_mpa")
-    y = frame["strength_mpa"]
+    path = ROOT / "data" / "qsar_aquatic_toxicity.csv"
+    columns = ["tpsa_tot", "saacc", "h_050", "mlogp", "rdchi", "gats1p", "n_n", "c_040", "lc50"]
+    frame = pd.read_csv(path, sep=";", header=None, names=columns)
+    X = frame.drop(columns="lc50")
+    y = frame["lc50"]
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=RANDOM_STATE
     )
     return DatasetSplit(
         task="regression",
-        name="Concrete Compressive Strength (UCI)",
-        practical_task="По составу смеси и возрасту бетона прогнозировать прочность на сжатие в МПа для предварительной оценки рецептуры.",
+        name="QSAR aquatic toxicity (UCI)",
+        practical_task="По молекулярным дескрипторам прогнозировать токсичность LC50 для Daphnia magna и предварительно оценивать опасность веществ для водных организмов.",
         X_train=X_train,
         X_test=X_test,
         y_train=y_train,
